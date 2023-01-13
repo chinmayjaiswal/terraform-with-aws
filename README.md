@@ -1,9 +1,10 @@
 # terraform-with-aws
 
-Tools:
-install **tfenv** tool to manage tfenv versions
+Prerequisites:
+* [Install terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+* [optional] install [**tfenv**](https://github.com/tfutils/tfenv) tool to manage terraform versions
 
-Commands:
+### Commands:
 - ```tfenv list```
 - ```tfenv exec init```
 - ```terraform init```
