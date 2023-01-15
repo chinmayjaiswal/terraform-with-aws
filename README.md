@@ -22,3 +22,8 @@ Execute following commands to try this your own
 4. ```terraform apply``` : this will create resources defined in terraform file (asks confirmation before creation)
 5. ```terraform apply --auto-approve``` : creates resources without confirmation
 6. ```terraform destroy ``` : to remove resources created
+
+
+## multiproviders
+* You can add multiple providers in same project. refer 10_local/multi_provider.tf
+* To check count of total providers installed go to ```.terraform``` directory verify
