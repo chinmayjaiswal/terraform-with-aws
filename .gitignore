@@ -4,6 +4,4 @@
 # .tfstate files
 *.tfstate
 *.tfstate.*
-10_local/hello.txt
-10_local/sensitive_content.txt
-10_local/pet-name.txt
+10_local/target
