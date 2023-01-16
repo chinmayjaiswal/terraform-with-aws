@@ -24,6 +24,29 @@ Execute following commands to try this your own
 6. ```terraform destroy ``` : to remove resources created
 
 
-## multiproviders
+## Multi Providers in terrraform
 * You can add multiple providers in same project. refer 10_local/multi_provider.tf
 * To check count of total providers installed go to ```.terraform``` directory verify
+
+
+## Variables in terraform
+* Types of Variables
+  * number
+  * string
+  * bool
+  * map
+  * list 
+  * set
+* Ways to define variable:
+  * Using .auto.tfvars file
+  * Using .auto.tfvars.json file
+  * Using terraform.tfvars file
+  * By providing command line flag of -var or -var-file
+* command line flag of -var or -var-file has the highest precedence in variable definition
+* To use  variables file (variables.tfvars) use following command : 
+  * ```terraform apply -var-file variables.tfvars```
+* Terraform follows a variable definition precedence order to determine the value and the command line flag of –var or –var-file takes the highest priority.
+* 
+
+
+
