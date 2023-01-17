@@ -1,4 +1,4 @@
-# terraform-with-aws
+# Terraform Basics
 
 Prerequisites:
 * [Install terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
@@ -14,6 +14,7 @@ Prerequisites:
 - ```terraform destroy ```
 - ```terraform destroy --auto-approve``` : does not need confirmation
 - ```terraform show``` : Display information about existing resources created and output variable values
+- ```terraform output``` : display values for output variables
 
 ### Steps to run terraform script in this repository
 Execute following commands to try this your own
@@ -56,6 +57,17 @@ Execute following commands to try this your own
 * Explicit Dependency : by explicitly mentioning dependency with ```depends_on``` block in Resource
   * Example:
     * ``` depends_on =[local_file.krill] ```
+
+## Output variables
+* output variables are used to store value of expressions in variables
+```
+output "<variable_name>" {
+  value="<variable_value>"  #this is mandatory attribute and should be reference variable
+  <arguments>
+ }
+```
+* use ```terraform output``` command to print all output variables value
+* use ```terraform output <output_variable_name>``` to print specific output variable value
 
 
 
