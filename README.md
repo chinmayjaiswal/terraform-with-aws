@@ -15,7 +15,7 @@ Prerequisites:
 - ```terraform destroy --auto-approve``` : does not need confirmation
 - ```terraform show``` : Display information about existing resources created
 
-### Steps to run terraform script
+### Steps to run terraform script in this repository
 Execute following commands to try this your own
 1. ```cd 10_local``` : switch to terraform directory
 2. ```terraform init``` : this will create .terraform folder in 10_local and .terraform.lock.hcl file
@@ -47,7 +47,17 @@ Execute following commands to try this your own
 * To use  variables file (variables.tfvars) use following command : 
   * ```terraform apply -var-file variables.tfvars```
 * Terraform follows a variable definition precedence order to determine the value and the command line flag of –var or –var-file takes the highest priority.
-* 
+
+## Resource Dependency
+* Refer ```10_local/implicit_and_explicit_dependency.tf``` in repository
+* Implicit dependency : When we use reference expressions to link resources
+  * Example: Resource A is created by referring Resource B's Attribute. 
+    ```content = "This file is created at ${time_static.time.id}"```
+* Explicit Dependency : by explicitly mentioning dependency with ```depends_on``` block in Resource
+  * Example:
+    * ``` depends_on =[local_file.krill] ```
+
+
 
 
 
