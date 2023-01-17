@@ -13,7 +13,7 @@ Prerequisites:
 - ```terraform apply --auto-approve``` : does not need confirmation
 - ```terraform destroy ```
 - ```terraform destroy --auto-approve``` : does not need confirmation
-- ```terraform show``` : Display information about existing resources created
+- ```terraform show``` : Display information about existing resources created and output variable values
 
 ### Steps to run terraform script in this repository
 Execute following commands to try this your own
