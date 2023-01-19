@@ -69,6 +69,17 @@ output "<variable_name>" {
 * use ```terraform output``` command to print all output variables value
 * use ```terraform output <output_variable_name>``` to print specific output variable value
 
+## Terraform State
+* Default Terraform state filename is : ```terraform.tfstate``` and it is stored as ``json`` format by default
+* We cannot disable state in terraform (its non-optinoal feature in terraform)
+* ```terraform init``` command does not refresh state
+* Until you run ```terraform apply``` state file will not be created
+### **Considerations in terraform state file**
+* Terraform state file contains sensitive information about resources
+* It is not  recommended to store state file in version control repositories
+* Store state file in remote state backends such as s3, terraform cloud
+* We should never attempt to manually edit state file ourselves (if needed use ```terraform state commands```)
+
 
 
 
