@@ -8,19 +8,19 @@ resource "tls_private_key" "pvtkey" {
 }
 
 resource "local_file" "key_details" {
-  filename="./target/key.txt"
-  content= tls_private_key.pvtkey.private_key_pem #implicit dependency
+  filename = "./target/key.txt"
+  content  = tls_private_key.pvtkey.private_key_pem #implicit dependency
 }
 
 
 #---------------Explicit Dependency Example-------------------
 resource "local_file" "whale" {
-  filename="./target/whale"
-  content= "whale"
-  depends_on =[local_file.krill] #Explicit dependency
+  filename   = "./target/whale"
+  content    = "whale"
+  depends_on = [local_file.krill] #Explicit dependency
 }
 resource "local_file" "krill" {
-  filename="./target/krill"
-  content= "krill"
+  filename = "./target/krill"
+  content  = "krill"
 }
 

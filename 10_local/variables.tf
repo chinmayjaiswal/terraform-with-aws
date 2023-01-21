@@ -1,15 +1,15 @@
 variable "name" {
-  type = string
+  type    = string
   default = "Mark"
 
 }
 variable "number" {
-  type = bool
+  type    = bool
   default = true
 
 }
 variable "distance" {
-  type = number
+  type    = number
   default = 5
 
 }
@@ -17,13 +17,13 @@ variable "jedi" {
   type = map(string)
   default = {
     filename = "./target/first-jedi.txt"
-    content = "phanius"
+    content  = "phanius"
   }
 
 }
 
 variable "gender" {
-  type = list(string)
+  type    = list(string)
   default = ["Male", "Female"]
 }
 variable "hard_drive" {
@@ -34,6 +34,6 @@ variable "hard_drive" {
   }
 }
 variable "users" {
-  type = set(string)
+  type    = set(string)
   default = ["tom", "jerry", "pluto", "daffy", "donald", "jerry", "chip", "dale"]
 }

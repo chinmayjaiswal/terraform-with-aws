@@ -22,56 +22,56 @@ resource "random_uuid" "id7" {
 
 }
 resource "random_integer" "order1" {
-  min     = 1
-  max     = 99999
+  min = 1
+  max = 99999
 
 }
 resource "random_integer" "order2" {
-  min     = 1
-  max     = 222222
+  min = 1
+  max = 222222
 
 }
 
 output "id1" {
-   value = random_uuid.id1.result
+  value = random_uuid.id1.result
 }
 output "id2" {
-    value = random_uuid.id2.result
+  value = random_uuid.id2.result
 
 }
 output "id3" {
-    value = random_uuid.id3.result
+  value = random_uuid.id3.result
 
 }
 
 output "id4" {
-    value = random_uuid.id4.result
+  value = random_uuid.id4.result
 
 }
 output "id5" {
-    value = random_uuid.id5.result
+  value = random_uuid.id5.result
 }
 
 output "id6" {
-    value = random_uuid.id6.result
+  value = random_uuid.id6.result
 
 }
 output "id7" {
-    value = random_uuid.id7.result
+  value = random_uuid.id7.result
 
 }
 output "order1" {
- value = random_integer.order1.result
+  value = random_integer.order1.result
 
 }
 output "order2" {
- value = random_integer.order1.result
+  value = random_integer.order1.result
 
 }
 #-----------Example 2-------------------------
 resource "local_file" "welcome" {
   filename = "./target/message.txt"
-  content = "Welcome to terraform hands-on-lab."
+  content  = "Welcome to terraform hands-on-lab."
 }
 
 output "welcome_message" {
