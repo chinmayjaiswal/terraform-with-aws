@@ -13,8 +13,17 @@ Prerequisites:
 - ```terraform apply --auto-approve``` : does not need confirmation
 - ```terraform destroy ```
 - ```terraform destroy --auto-approve``` : does not need confirmation
-- ```terraform show``` : Display information about existing resources created and output variable values
-- ```terraform output``` : display values for output variables
+- ```terraform show [-json]``` : Display information about existing resources created and output variable values. Add -json flag to show in json format
+- ```terraform output``` : display values for all output variables
+- ```terraform output <variable_name>``` Display value of specific output variable
+- ```terraform validate``` : to verify if configuration files have valid syntax
+- ```terraform fmt``` : formats code in canonical format
+- ```terraform providers```:  see the providers required by current configuration directory
+- ```terraform providers mirror </destinatino/directory>``` copy providers to destination directory
+- ```terraform refresh```: updates state file as per resources modified outside terraform. Helps in identifying changes
+- ```terraform graph``` : used to create visual representation of terraform resources in as graph structure. You can use any graph visualizer tool(graphviz) to display graph from this command output.
+- 
+- 
 
 ### Steps to run terraform script in this repository
 Execute following commands to try this your own
@@ -78,7 +87,7 @@ output "<variable_name>" {
 * Terraform state file contains sensitive information about resources
 * It is not  recommended to store state file in version control repositories
 * Store state file in remote state backends such as s3, terraform cloud
-* We should never attempt to manually edit state file ourselves (if needed use ```terraform state commands```)
+* We should never attempt to manually edit state file ourselves (if needed use ```terraform state``` commands)
 
 
 
