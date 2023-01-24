@@ -1,0 +1,2 @@
+This file(resource) is created externally and not managed by terraform.
+Demo for Datasources

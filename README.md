@@ -22,8 +22,7 @@ Prerequisites:
 - ```terraform providers mirror </destinatino/directory>``` copy providers to destination directory
 - ```terraform refresh```: updates state file as per resources modified outside terraform. Helps in identifying changes
 - ```terraform graph``` : used to create visual representation of terraform resources in as graph structure. You can use any graph visualizer tool(graphviz) to display graph from this command output.
-- 
-- 
+- ```terraform state show <resource.resource>``` : Display information about specific resource
 
 ### Steps to run terraform script in this repository
 Execute following commands to try this your own
@@ -89,6 +88,67 @@ output "<variable_name>" {
 * Store state file in remote state backends such as s3, terraform cloud
 * We should never attempt to manually edit state file ourselves (if needed use ```terraform state``` commands)
 
+## Mutable vs Immutable Infrastructure
+1. The word ‘mutable’ suggests the ability to change- to mutate into something new. In the DevOps world, the advantage of mutability is crucial when you wish to retain previous data without worrying about obtaining new infrastructure. You can apply patches, upgrade or downgrade, and scale up and down.
+2. “Immutable” is the state of being unchangeable. It’s an antonym to mutable, which means that on this end, the infrastructure cannot be modified once deployed
+
+## Lifecycle Rules
+
+Example:
+* You can set rules as per your use case. 
+* For Example: following rule creates file first before destroying existing one during modifications
+```
+lifecycle {
+    create_before_destroy = true
+ }
+
+```
+
+* If you don't want to destroy resource then use : ```prevent_destroy=true``` in lifecycle block
+  ```
+      lifecycle {
+      prevent_destroy=true
+   }
+  ```
+* if you want to ignore changes you can add attribute ```ignore_changes=[<resource_attribute_to_ignore>]```. 
+  * Example 
+  ```
+  lifecycle {
+      ignore_changes = [tags] # ignores tags
+      ignore_changes = [tags, ami]
+      ignore_changes = all # ignore any changes to resource 
+   }
+  ```
+
+* Example: All the resources for the ```random``` provider can be recreated by using a map type argument called ```keepers```. A change in the value will force the resource to be recreated.
+
+## Datasources in terraform
+* Datasources in terraform are used to refer to resources which are created externally which are not managed by terraform. 
+* Datasoruces are defined by ```data``` block in terraform script
+* Example: 
+  ```
+  data "aws_ami" "example" {
+    most_recent = true
+  
+    owners = ["self"]
+    tags = {
+      Name   = "app-server"
+      Tested = "true"
+    }
+  }
+  ```
+
+| Resource                                  | Data Source                | 
+|-------------------------------------------|----------------------------|
+| keyword: **resource**                     | Keyword: data              |
+| Creates,Updates, Destroys, Infrastructure | Only Reads Infrastructure  |
+| Also called Managed Resources             | Also called Data Resources |
+
+### Hands-on:
+* go to `10_local/datasources.tf` read configuration
+* execute `terraform plan` and `terraform apply` commands
+* execute `terraform state show data.local_file.externalFile` 
+* execute `terraform output content_of_external_resource` 
 
 
 
