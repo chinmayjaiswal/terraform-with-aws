@@ -1,4 +1,4 @@
-data "local_file" "externalFile" {
+data "local_file" "externalFile" { #note: we use  'data' block instead of `resource` block to point to external resource
   filename = "externalResource.txt"
 }
 
