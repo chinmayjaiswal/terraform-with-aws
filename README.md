@@ -152,4 +152,36 @@ lifecycle {
 
 
 
+## Meta argument
+* Meta arguments are used in any `resource` block to change the behaviour of resources.
+* We already used meta arguments while creating resources such as : `depends_on` and `lifecycle`
+  * Few more Examples : `count`, `provider`, `provisioner`, `output`, `connection`, `variable`, `locals`, `timeouts`, `source`, `condition`, `data`, `for_each`, `on_failure`, `ignore_changes`, `create_before_destroy`, `validate`, `metadata`, `destroy`, `override`
+  * Mor more details on these meta-arguments in refer [this-blog](https://medium.com/@neonforge/meta-arguments-in-terraform-unlocking-the-full-potential-of-infrastructure-as-code-de125c85c547)
+
+### 1. Count
+This meta argument is used to create multiple instances of same resource.
+Example: 
+```
+resource "local_file" "foo"{
+  filename= var.filename
+  count=3
+}
+
+```
+* Tip: * Tip: Resources created with `count` are maintained as list in state-file, this implies changing order of input variable to resource may replace existing resources
+
+### 1. for_each
+* Multiple instances of same resource can be created with `for_each` as well. 
+* `for_each` works with only `map` or `set`
+* Example: 
+```
+resource "local_file" "bar"{
+  filename= each.value
+  for_each=var.filenames #filenames should be set/map
+}
+```
+* Tip: Resources created with `for_each` are maintained as map in state-file. Any modifications to input variable will not force replace other instance
+
+
+
 

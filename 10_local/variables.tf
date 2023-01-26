@@ -37,3 +37,11 @@ variable "users" {
   type    = set(string)
   default = ["tom", "jerry", "pluto", "daffy", "donald", "jerry", "chip", "dale"]
 }
+
+variable "fileNames" {
+  default = [
+    "./target/file1.txt",
+    "./target/file2.txt",
+    "./target/file3.txt",
+  ]
+}
