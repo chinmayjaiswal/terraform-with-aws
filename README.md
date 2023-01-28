@@ -170,7 +170,7 @@ resource "local_file" "foo"{
 ```
 * Tip: * Tip: Resources created with `count` are maintained as list in state-file, this implies changing order of input variable to resource may replace existing resources
 
-### 1. for_each
+### 2. for_each
 * Multiple instances of same resource can be created with `for_each` as well. 
 * `for_each` works with only `map` or `set`
 * Example: 
@@ -181,6 +181,8 @@ resource "local_file" "bar"{
 }
 ```
 * Tip: Resources created with `for_each` are maintained as map in state-file. Any modifications to input variable will not force replace other instance
+* If you have list defilned then you can use built-in functions as : `toset` & `tomap` to convert existing list to map in terraform script
+
 
 
 
