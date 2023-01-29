@@ -45,3 +45,12 @@ variable "fileNames" {
     "./target/file3.txt",
   ]
 }
+
+variable "cartoonCharacterFileNames" {
+  type    = set(string)
+  default = [
+    "./target/tom",
+    "./target/jerry",
+    "./target/pluto"
+  ]
+}
