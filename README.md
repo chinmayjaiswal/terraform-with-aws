@@ -184,6 +184,31 @@ resource "local_file" "bar"{
 * If you have list defilned then you can use built-in functions as : `toset` & `tomap` to convert existing list to map in terraform script
 
 
+## Version Constraints
+* We can use specific version for providers 
+* We need to specify particular provider versions in `terraform` under `required_providers`
+* To exclude specific version use `!=` operator like `version= "!=2.1.0"` 
+* To use version smaller than specific one use `<` comparator operator like : `version = "<2.1.0"`
+* To use version greater than specific one use `>` comparator operator like : `version = ">2.1.0"`
+* We can also specify version range like : `version= ">1.2.1, <2.1.0, !=1.4.0"`
+* We can also use pessimistic operators as : `version= "~> 1.2"` : this will download any incremental provider version available like 1.2, 1.3 ,1.4 and so on but not 2.1, 2.2, 2,3 
+
+  Example:
+    ```
+    terraform {
+      required_providers {
+        local = {
+          source = "hashicorp/local"
+          version = "2.2.1"
+        }
+      }
+    }
+    
+    provider "local" {
+      # Configuration options
+    }
+    ```
+
 
 
 
